@@ -1,0 +1,31 @@
+2015-12-26  Deniz Yuret  <dyuret@ku.edu.tr>
+
+	* Book: Sams Teach Yourself Mod Development for Minecraft in 24
+	Hours. By Jimmy Koene. 2014. (2nd ed 2015).
+
+	- Get the second edition, I have the first edition on Kindle.
+	- His info: http://www.jimmykoene.me/writing/
+	- He has online tutorials at: http://www.wuppy29.com/minecraft/modding-tutorials/forge-modding
+	- MCP: mod coder pack, precursor to Forge, does not allow multiple mods.
+	- Forge: API that allows multiple mods.
+
+	* Book: Minecraft Modding For Kids For Dummies. By Sarah Guthals,
+	Stephen Foster, Lindsey. 2015.
+
+	- Great educational book, has its own blockly language.
+
+	* Book: Minecraft Modding with Forge: A Family-Friendly Guide to
+	Building Fun Mods in Java. By Arun Gupta, Aditya Gupta. 2015.
+
+	* Book: Absolute Beginner's Guide to Minecraft Mods Programming.
+	By Rogers Cadenhead. 2014. (2nd ed 2015).
+
+	* Book: Adventures in Minecraft. By David Whale, Martin
+	O'Hanlon. 2014.
+
+	* Book: Learn to Program with Minecraft Plugins: Create Flying
+	Creepers and Flaming Cows in Java. Andy Hunt. 2014.
+
+	- Really good, but sadly dependent on CraftBukkit which has been
+	taken down.
+
