@@ -1,3 +1,492 @@
+2016-01-23  Deniz Yuret  <dyuret@ku.edu.tr>
+
+	* entity/Entity.java:
+
+	=== Hierarchy: (count, parent, children)
+	49 EntityAIBase EntityAIAttackOnCollide EntityAIArrowAttack EntityAIControlledByPlayer EntityAIBeg EntityAIFindEntityNearest EntityAICreeperSwell EntityAIDoorInteract EntityAIEatGrass EntityAIFindEntityNearestPlayer EntityAIFleeSun EntityAIFollowGolem EntityAIFollowOwner EntityAIFollowParent EntityAILeapAtTarget EntityAILookAtVillager EntityAILookIdle EntityAIMate EntityAIMoveIndoors EntityAIMoveThroughVillage EntityAIMoveToBlock EntityAIMoveTowardsRestriction EntityAIMoveTowardsTarget EntityAIOcelotAttack EntityAIPanic EntityAIPlay EntityAIRestrictOpenDoor EntityAIRestrictSun EntityAIRunAroundLikeCrazy EntityAISit EntityAISwimming EntityAITarget EntityAITempt EntityAITradePlayer EntityAIVillagerMate EntityAIWander EntityAIWatchClosest AIFireballAttack AIPlaceBlock AITakeBlock AIFireballAttack AILookAround AIRandomFly AIGuardianAttack AISummonSilverfish AISlimeAttack AISlimeFaceRandom AISlimeFloat AISlimeHop AIMoveRandom
+	17 Entity EntityDragonPart EntityWeatherEffect EntityFireworkRocket EntityBoat EntityEnderCrystal EntityEnderEye EntityFallingBlock EntityItem EntityMinecart EntityTNTPrimed EntityXPOrb EntityArrow EntityFireball EntityFishHook EntityThrowable EntityHanging EntityLivingBase
+	12 EntityMob EntityWither EntityBlaze EntityEndermite EntityCreeper EntityEnderman EntityGiantZombie EntityGuardian EntitySilverfish EntitySkeleton EntitySpider EntityWitch EntityZombie
+	7 EntityAnimal EntityChicken EntityCow EntityHorse EntityPig EntityRabbit EntitySheep EntityTameable
+	6 EntityMinecart EntityMinecartMobSpawner EntityMinecartContainer EntityMinecartEmpty EntityMinecartFurnace EntityMinecartTNT EntityMinecartCommandBlock
+	6 EntityLiving EntityDragon EntitySlime EntityAmbientCreature EntityWaterMob EntityCreature EntityFlying
+	5 EntityThrowable EntityEnderPearl EntityExpBottle EntityEgg EntityPotion EntitySnowball
+	4 EntityMoveHelper GhastMoveHelper GuardianMoveHelper SlimeMoveHelper RabbitMoveHelper
+	4 EntityLivingBase> EntityAINearestAttackableTarget<T EntityAITargetNonTamed<T AINearestAttackableTargetNonCreeper<T AISpiderTarget<T
+	4 EntityAITarget EntityAIDefendVillage EntityAIHurtByTarget EntityAIOwnerHurtByTarget EntityAIOwnerHurtTarget
+	3 EntityLivingBase EntityArmorStand EntityPlayer EntityLiving
+	3 EntityHanging EntityItemFrame EntityPainting EntityLeashKnot
+	3 EntityFireball EntityLargeFireball EntitySmallFireball EntityWitherSkull
+	3 EntityCreature EntityGolem EntityMob EntityAgeable
+	3 EntityAIMoveToBlock EntityAIHarvestFarmland EntityAIOcelotSit AIRaidFarm
+	2 EntityTameable EntityOcelot EntityWolf
+	2 EntityMinecartContainer EntityMinecartChest EntityMinecartHopper
+	2 EntityGolem EntityIronGolem EntitySnowman
+	2 Entity> EntityAIAvoidEntity<T AIAvoidEntity<T
+	2 EntityAIWatchClosest EntityAILookAtTradePlayer EntityAIWatchClosest2
+	2 EntityAIDoorInteract EntityAIBreakDoor EntityAIOpenDoor
+	2 EntityAIAttackOnCollide AISpiderAttack AIEvilAttack
+	2 EntityAgeable EntityAnimal EntityVillager
+	1 Tuple<Integer, PriceInfo
+	1 EntityZombie EntityPigZombie
+	1 EntityWeatherEffect EntityLightningBolt
+	1 EntityWaterMob EntitySquid
+	1 EntitySpider EntityCaveSpider
+	1 EntitySlime EntityMagmaCube
+	1 EntityPlayer EntityPlayerMP
+	1 EntityJumpHelper RabbitJumpHelper
+	1 EntityFlying EntityGhast
+	1 EntityCow EntityMooshroom
+	1 EntityAmbientCreature EntityBat
+	1 EntityAIWatchClosest2 EntityAIVillagerInteract
+	1 EntityAIWander AIHideInStone
+	1 EntityAIPanic AIPanic
+	1 EntityAINearestAttackableTarget<EntityPlayer> AITargetAggressor
+	1 EntityAINearestAttackableTarget AIFindPlayer
+	1 EntityAIHurtByTarget AIHurtByAggressor
+	1 BaseAttribute RangedAttribute
+	1 BaseAttributeMap ServersideAttributeMap
+
+
+	* item/Item.java:
+
+	=== Hierarchy: (count, parent, children) 67
+	47 Item ItemArmor ItemArmorStand ItemBed ItemBlock ItemBoat ItemBook ItemBow ItemBucket ItemBucketMilk ItemCarrotOnAStick ItemCoal ItemDoor ItemDye ItemEditableBook ItemEgg ItemEnchantedBook ItemEnderEye ItemEnderPearl ItemExpBottle ItemFireball ItemFireworkCharge ItemFirework ItemFishingRod ItemFlintAndSteel ItemFood ItemGlassBottle ItemHangingEntity ItemHoe ItemLead ItemMapBase ItemMinecart ItemMonsterPlacer ItemNameTag ItemPotion ItemRecord ItemRedstone ItemReed ItemSaddle ItemSeeds ItemShears ItemSign ItemSimpleFoiled ItemSkull ItemSnowball ItemSword ItemTool ItemWritableBook
+	8 ItemBlock ItemBanner ItemCloth ItemColored ItemLeaves ItemMultiTexture ItemPiston ItemSlab ItemSnow
+	4 ItemFood ItemAppleGold ItemFishFood ItemSeedFood ItemSoup
+	3 ItemTool ItemAxe ItemPickaxe ItemSpade
+	2 ItemMultiTexture ItemAnvilBlock ItemDoublePlant
+	2 ItemMapBase ItemEmptyMap ItemMap
+	1 ItemColored ItemLilyPad
+
+	=== Fields:
+	protected boolean bFull3D;
+	private Item containerItem;
+	protected boolean hasSubtypes;
+	protected static Random itemRand = new Random();
+	private int maxDamage;
+	protected int maxStackSize = 64;
+	private String potionEffect;
+	private CreativeTabs tabToDisplayOn;
+	private String unlocalizedName;
+
+	=== public static enum ToolMaterial {
+        WOOD(0, 59, 2.0F, 0.0F, 15),
+        STONE(1, 131, 4.0F, 1.0F, 5),
+        IRON(2, 250, 6.0F, 2.0F, 14),
+        EMERALD(3, 1561, 8.0F, 3.0F, 10),
+        GOLD(0, 32, 12.0F, 0.0F, 22);
+        private final int harvestLevel;
+        private final int maxUses;
+        private final float efficiencyOnProperMaterial;
+        private final float damageVsEntity;
+        private final int enchantability;
+
+
+
+	* block/Block.java:
+
+	=== Hierarchy: (count, parent, children) 153
+	72 Block BlockAir BlockBarrier BlockBasePressurePlate BlockBookshelf BlockBreakable BlockBush BlockButton BlockCactus BlockCake BlockCarpet BlockCauldron BlockClay BlockColored BlockCompressedPowered BlockContainer BlockDirectional BlockDirt BlockDoor BlockDragonEgg BlockEndPortalFrame BlockFalling BlockFarmland BlockFence BlockFire BlockGlowstone BlockGrass BlockHardenedClay BlockHugeMushroom BlockLadder BlockLeavesBase BlockLever BlockLiquid BlockMelon BlockMycelium BlockNetherBrick BlockNetherrack BlockObsidian BlockOre BlockPackedIce BlockPane BlockPistonBase BlockPistonExtension BlockPlanks BlockPrismarine BlockQuartz BlockRailBase BlockRedSandstone BlockRedstoneLight BlockRedstoneOre BlockRedstoneWire BlockReed BlockRotatedPillar BlockSandStone BlockSeaLantern BlockSilverfish BlockSlab BlockSnowBlock BlockSnow BlockSoulSand BlockSponge BlockStairs BlockStoneBrick BlockStone BlockTNT BlockTorch BlockTrapDoor BlockTripWireHook BlockTripWire BlockVine BlockWall BlockWeb BlockWorkbench
+	19 BlockContainer BlockBanner BlockBeacon BlockBrewingStand BlockChest BlockCommandBlock BlockDaylightDetector BlockDispenser BlockEnchantmentTable BlockEnderChest BlockEndPortal BlockFlowerPot BlockFurnace BlockHopper BlockJukebox BlockMobSpawner BlockNote BlockPistonMoving BlockSign BlockSkull
+	10 BlockBush BlockCrops BlockDeadBush BlockDoublePlant BlockFlower BlockLilyPad BlockMushroom BlockNetherWart BlockSapling BlockStem BlockTallGrass
+	5 BlockDirectional BlockBed BlockCocoa BlockFenceGate BlockPumpkin BlockRedstoneDiode
+	5 BlockBreakable BlockGlass BlockIce BlockPortal BlockSlime BlockStainedGlass
+	3 BlockSlab BlockStoneSlab BlockStoneSlabNew BlockWoodSlab
+	3 BlockRailBase BlockRailDetector BlockRail BlockRailPowered
+	3 BlockFalling BlockAnvil BlockGravel BlockSand
+	2 BlockWoodSlab BlockDoubleWoodSlab BlockHalfWoodSlab
+	2 BlockStoneSlabNew BlockDoubleStoneSlabNew BlockHalfStoneSlabNew
+	2 BlockStoneSlab BlockDoubleStoneSlab BlockHalfStoneSlab
+	2 BlockSign BlockStandingSign BlockWallSign
+	2 BlockRotatedPillar BlockHay BlockLog
+	2 BlockRedstoneDiode BlockRedstoneComparator BlockRedstoneRepeater
+	2 BlockLog BlockNewLog BlockOldLog
+	2 BlockLiquid BlockDynamicLiquid BlockStaticLiquid
+	2 BlockLeaves BlockNewLeaf BlockOldLeaf
+	2 BlockFlower BlockRedFlower BlockYellowFlower
+	2 BlockCrops BlockCarrot BlockPotato
+	2 BlockButton BlockButtonStone BlockButtonWood
+	2 BlockBasePressurePlate BlockPressurePlate BlockPressurePlateWeighted
+	2 BlockBanner BlockBannerHanging BlockBannerStanding
+	1 BlockTorch BlockRedstoneTorch
+	1 BlockPane BlockStainedGlassPane
+	1 BlockLeavesBase BlockLeaves
+	1 BlockDispenser BlockDropper
+
+	5 Material MaterialLiquid MaterialTransparent MaterialLogic MaterialPortal
+	1 TileEntity TileEntityJukebox
+
+	cat *.java | perl -ne 'push @{$p{$2}},$1 if /class\s+(\S+)\s+extends\s+(\S+)/; END { print join(" ", $_, @{$p{$_}}, "\n") for keys %p;}'
+
+	=== Fields:
+	protected float blockHardness;
+	public float blockParticleGravity;
+	protected float blockResistance;
+	protected final BlockState blockState;
+	private IBlockState defaultBlockState;
+	private CreativeTabs displayOnCreativeTab;
+	protected boolean enableStats;
+	protected boolean fullBlock;
+	protected boolean isBlockContainer;
+	protected int lightOpacity;
+	protected int lightValue;
+	protected final MapColor blockColor;
+	protected final Material blockMaterial;
+	protected double maxX;
+	protected double maxY;
+	protected double maxZ;
+	protected double minX;
+	protected double minY;
+	protected double minZ;
+	protected boolean needsRandomTick;
+	public float slipperiness;
+	public Block.SoundType stepSound;
+	protected boolean translucent;
+	private String unlocalizedName;
+	protected boolean useNeighborBrightness;
+
+	=== Constructor:
+	public Block(Material p_i46399_1_, MapColor p_i46399_2_)
+	{
+        this.enableStats = true;
+        this.stepSound = soundTypeStone;
+        this.blockParticleGravity = 1.0F;
+        this.slipperiness = 0.6F;
+        this.blockMaterial = p_i46399_1_;
+        this.blockColor = p_i46399_2_;
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        this.fullBlock = this.isOpaqueCube();
+        this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+        this.translucent = !p_i46399_1_.blocksLight();
+        this.blockState = this.createBlockState();
+        this.setDefaultState(this.blockState.getBaseState());
+	}
+
+	=== Setters:
+	public final void setBlockBounds(float minX, float minY, float minZ, float maxX, float maxY, float maxZ)
+	public Block setStepSound(Block.SoundType sound)
+	public Block setLightOpacity(int opacity)
+	public Block setLightLevel(float value) => lightValue
+	public Block setResistance(float resistance) => blockResistance
+	public Block setHardness(float hardness) => blockHardness
+	public Block setBlockUnbreakable() => this.setHardness(-1.0F);
+	public Block setTickRandomly(boolean shouldTick) => needsRandomTick
+	public Block setUnlocalizedName(String name)
+	public Block setCreativeTab(CreativeTabs tab) => displayOnCreativeTab
+
+	* all:
+	73 Block BlockAir BlockBasePressurePlate BlockBarrier BlockBookshelf BlockBreakable BlockButton BlockBush BlockCompressedPowered BlockCactus BlockCake BlockCarpet BlockCauldron BlockClay BlockColored BlockContainer BlockDirectional BlockDirt BlockDoor BlockDragonEgg BlockEndPortalFrame BlockFalling BlockFarmland BlockFence BlockFire BlockGlowstone BlockGrass BlockHardenedClay BlockHugeMushroom BlockLadder BlockLeavesBase BlockLever BlockLiquid BlockMelon BlockMycelium BlockNetherBrick BlockNetherrack BlockObsidian BlockOre BlockPackedIce BlockPane BlockPistonBase BlockPistonExtension BlockPlanks BlockPrismarine BlockQuartz BlockRailBase BlockRedSandstone BlockRedstoneLight BlockRedstoneOre BlockRedstoneWire BlockReed BlockRotatedPillar BlockSandStone BlockSeaLantern BlockSilverfish BlockSlab BlockSnow BlockSnowBlock BlockSoulSand BlockSponge BlockStairs BlockStone BlockStoneBrick BlockTNT BlockTorch BlockTrapDoor BlockTripWire BlockTripWireHook BlockVine BlockWall BlockWeb BlockWorkbench
+	59 CommandBase CommandPardonPlayer CommandAchievement CommandBanIp CommandBanPlayer CommandBroadcast CommandDeOp CommandEmote CommandListBans CommandListPlayers CommandMessage CommandMessageRaw CommandOp CommandPardonIp CommandSetDefaultSpawnpoint CommandPublishLocalServer CommandSaveAll CommandSaveOff CommandSaveOn CommandScoreboard CommandSetBlock CommandTeleport CommandStop CommandSummon CommandTestForBlock CommandTestFor CommandWhitelist CommandBlockData CommandClearInventory CommandClone CommandCompare CommandDebug CommandDifficulty CommandEffect CommandEnchant CommandEntityData CommandExecuteAt CommandFill CommandGameMode CommandGameRule CommandGive CommandHelp CommandKill CommandSetPlayerTimeout CommandParticle CommandPlaySound CommandReplaceItem CommandServerKick CommandSetSpawnpoint CommandShowSeed CommandSpreadPlayers CommandStats CommandTime CommandTitle CommandToggleDownfall CommandTrigger CommandWeather CommandWorldBorder CommandXP
+	50 EntityAIBase EntityAIAttackOnCollide EntityAIArrowAttack EntityAIControlledByPlayer EntityAIBeg EntityAIFindEntityNearest EntityAICreeperSwell EntityAIDoorInteract EntityAIEatGrass EntityAIFindEntityNearestPlayer EntityAIFleeSun EntityAIFollowGolem EntityAIFollowOwner EntityAIFollowParent EntityAILeapAtTarget EntityAILookAtVillager EntityAILookIdle EntityAIMate EntityAIMoveIndoors EntityAIMoveThroughVillage EntityAIMoveToBlock EntityAIMoveTowardsRestriction EntityAIMoveTowardsTarget EntityAIOcelotAttack EntityAIPanic EntityAIPlay EntityAIRestrictOpenDoor EntityAIRestrictSun EntityAIRunAroundLikeCrazy EntityAISit EntityAISwimming EntityAITarget EntityAITempt EntityAITradePlayer EntityAIVillagerMate EntityAIWander EntityAIWatchClosest AIFireballAttack AIPlaceBlock AITakeBlock AIFireballAttack AILookAround AIRandomFly AIGuardianAttack AISummonSilverfish AISlimeAttack AISlimeFaceRandom AISlimeFloat AISlimeHop AIMoveRandom
+	48 Item ItemCarrotOnAStick ItemArmor ItemArmorStand ItemBed ItemBlock ItemBoat ItemBook ItemBow ItemBucket ItemBucketMilk ItemCoal ItemDoor ItemEditableBook ItemDye ItemEgg ItemEnchantedBook ItemEnderEye ItemEnderPearl ItemExpBottle ItemFireball ItemFirework ItemFireworkCharge ItemFishingRod ItemFlintAndSteel ItemFood ItemGlassBottle ItemHangingEntity ItemHoe ItemLead ItemMapBase ItemMinecart ItemMonsterPlacer ItemNameTag ItemPotion ItemRecord ItemRedstone ItemReed ItemSaddle ItemSeeds ItemShears ItemSign ItemSimpleFoiled ItemSkull ItemSnowball ItemSword ItemTool ItemWritableBook
+	45 GuiScreen GuiAchievements GuiStats GuiContainer GuiEditSign GuiStreamUnavailable GuiIngestServers GuiStreamOptions GuiTwitchUserMode GuiCommandBlock GuiChat GuiControls GuiCreateFlatWorld GuiCreateWorld GuiCustomizeSkin GuiCustomizeWorldScreen GuiDisconnected GuiDownloadTerrain GuiErrorScreen GuiFlatPresets GuiGameOver GuiIngameMenu GuiLanguage GuiMainMenu GuiMemoryErrorScreen GuiMultiplayer GuiOptions GuiRenameWorld GuiScreenAddServer GuiScreenBook GuiScreenCustomizePresets GuiScreenDemo GuiScreenOptionsSounds GuiScreenRealmsProxy GuiScreenResourcePacks GuiScreenServerList GuiScreenWorking GuiSelectWorld GuiShareToLan GuiSnooper GuiVideoSettings GuiWinGame GuiYesNo ScreenChatOptions GuiConnecting
+	33 ModelBase ModelEnderCrystal ModelBanner ModelBat ModelBiped ModelBlaze ModelBoat ModelBook ModelChest ModelChicken ModelCreeper ModelDragon ModelEnderMite ModelGhast ModelGuardian ModelHorse ModelIronGolem ModelSilverfish ModelLeashKnot ModelMagmaCube ModelMinecart ModelOcelot ModelQuadruped ModelRabbit ModelSign ModelSkeletonHead ModelSnowMan ModelSlime ModelSpider ModelSquid ModelVillager ModelWither ModelWolf
+	32 EntityFX Barrier EntityAuraFX EntityDropParticleFX EntityBreakingFX EntityBubbleFX EntityCloudFX EntityCrit2FX EntityDiggingFX EntityEnchantmentTableParticleFX EntityExplodeFX OverlayFX SparkFX StarterFX EntityFishWakeFX EntityFlameFX EntityFootStepFX EntityHeartFX EntityHugeExplodeFX EntityLargeExplodeFX EntityLavaFX EntityNoteFX EntityParticleEmitter EntityPickupFX EntityPortalFX EntityRainFX EntityReddustFX EntitySmokeFX EntitySnowShovelFX EntitySpellParticleFX EntitySuspendFX MobAppearance
+	30 WorldGenerator WorldGeneratorBonusChest WorldGenAbstractTree WorldGenBigMushroom WorldGenBlockBlob WorldGenCactus WorldGenClay WorldGenDeadBush WorldGenDesertWells WorldGenDoublePlant WorldGenDungeons WorldGenFire WorldGenFlowers WorldGenGlowStone1 WorldGenGlowStone2 WorldGenHellLava WorldGenIcePath WorldGenIceSpike WorldGenLakes WorldGenLiquids WorldGenMelon WorldGenMinable WorldGenPumpkin WorldGenReed WorldGenSand WorldGenSpikes WorldGenTallGrass WorldGenVines WorldGenWaterlily GeneratorBushFeature
+	20 BlockContainer BlockBanner BlockBrewingStand BlockBeacon BlockChest BlockCommandBlock BlockDaylightDetector BlockDispenser BlockEnchantmentTable BlockEndPortal BlockEnderChest BlockFlowerPot BlockFurnace BlockHopper BlockJukebox BlockMobSpawner BlockNote BlockPistonMoving BlockSign BlockSkull
+	19 GenLayer GenLayerAddIsland GenLayerAddMushroomIsland GenLayerAddSnow GenLayerBiome GenLayerBiomeEdge GenLayerDeepOcean GenLayerEdge GenLayerHills GenLayerIsland GenLayerRareBiome GenLayerRemoveTooMuchOcean GenLayerRiver GenLayerRiverInit GenLayerRiverMix GenLayerShore GenLayerSmooth GenLayerVoronoiZoom GenLayerZoom
+	19 Entity EntityFX EntityDragonPart EntityWeatherEffect EntityFireworkRocket EntityBoat EntityEnderCrystal EntityEnderEye EntityFallingBlock EntityItem EntityMinecart EntityTNTPrimed EntityXPOrb EntityArrow EntityFireball EntityFishHook EntityThrowable EntityHanging EntityLivingBase
+	19 BiomeGenBase BiomeGenMushroomIsland BiomeGenBeach BiomeGenDesert BiomeGenEnd BiomeGenForest BiomeGenHell BiomeGenHills BiomeGenJungle BiomeGenMesa BiomeGenMutated BiomeGenOcean BiomeGenPlains BiomeGenRiver BiomeGenSavanna BiomeGenSnow BiomeGenStoneBeach BiomeGenSwamp BiomeGenTaiga
+	18 Enchantment EnchantmentArrowDamage EnchantmentArrowInfinite EnchantmentArrowFire EnchantmentArrowKnockback EnchantmentDamage EnchantmentDigging EnchantmentDurability EnchantmentFireAspect EnchantmentFishingSpeed EnchantmentKnockback EnchantmentLootBonus EnchantmentOxygen EnchantmentProtection EnchantmentThorns EnchantmentUntouching EnchantmentWaterWalker EnchantmentWaterWorker
+	16 TileEntity TileEntityJukebox TileEntityBanner TileEntityCommandBlock TileEntityDaylightDetector TileEntityComparator TileEntityEnchantmentTable TileEntityEndPortal TileEntityEnderChest TileEntityFlowerPot TileEntityLockable TileEntityMobSpawner TileEntityNote TileEntityPiston TileEntitySign TileEntitySkull
+	15 StructureNetherBridgePieces.Piece Corridor Corridor2 Corridor3 Corridor4 Corridor5 Crossing Crossing2 Crossing3 End Entrance NetherStalkRoom Stairs Straight Throne
+	15 GuiSlot Stats StatsGeneral StatsMobsList ServerList GuiClickableScrolledSelectionListProxy Details ListSlot List GuiListExtended ListPreset List GuiSimpleScrolledSelectionListProxy GuiSlotRealmsProxy List
+	14 Container ContainerCreative ContainerBeacon ContainerHorseInventory ContainerBrewingStand ContainerChest ContainerDispenser ContainerEnchantment ContainerFurnace ContainerHopper ContainerMerchant ContainerPlayer ContainerRepair ContainerWorkbench
+	13 StructureVillagePieces.Village Church Field1 Field2 Hall House1 House2 House3 House4Garden Road Torch Well WoodHut
+	13 StructureOceanMonumentPieces.Piece DoubleXRoom DoubleXYRoom DoubleYRoom DoubleYZRoom DoubleZRoom EntryRoom MonumentBuilding MonumentCoreRoom Penthouse SimpleRoom SimpleTopRoom WingRoom
+	13 GuiContainer GuiBeacon GuiBrewingStand GuiChest GuiCrafting GuiDispenser GuiFurnace GuiScreenHorseInventory GuiEnchantment GuiHopper GuiMerchant GuiRepair InventoryEffectRenderer
+	13 GuiButton Button GuiButtonRealmsProxy GuiButtonLanguage ButtonPart GuiListButton GuiLockIconButton MerchantButton GuiOptionButton GuiOptionSlider NextPageButton Button GuiSlider
+	13 EntityMob EntityWither EntityBlaze EntityEndermite EntityCreeper EntityEnderman EntityGiantZombie EntityGuardian EntitySilverfish EntitySkeleton EntitySpider EntityWitch EntityZombie
+	12 StructureStrongholdPieces.Stronghold ChestCorridor Corridor Crossing LeftTurn Library PortalRoom Prison RoomCrossing Stairs StairsStraight Straight
+	11 Gui GuiAchievement GuiButton GuiIngame GuiLabel GuiNewChat GuiOverlayDebug GuiPlayerTabOverlay GuiScreen GuiSpectator GuiTextField
+	11 BlockBush BlockCrops BlockDeadBush BlockDoublePlant BlockFlower BlockLilyPad BlockMushroom BlockNetherWart BlockSapling BlockStem BlockTallGrass
+	10 WorldGenAbstractTree WorldGenBigTree WorldGenCanopyTree WorldGenForest WorldGenHugeTrees WorldGenSavannaTree WorldGenSwamp WorldGenTaiga1 WorldGenTaiga2 WorldGenTrees
+	10 StructureComponent Feature Corridor Cross Room Stairs Piece Piece Stronghold Village
+	9 Slot CreativeSlot BeaconSlot Ingredient Potion SlotCrafting SlotFurnaceFuel SlotFurnaceOutput SlotMerchantResult
+	9 ItemBlock ItemBanner ItemColored ItemCloth ItemLeaves ItemMultiTexture ItemPiston ItemSlab ItemSnow
+	8 NBTBase NBTPrimitive NBTTagByteArray NBTTagCompound NBTTagEnd NBTTagIntArray NBTTagList NBTTagString
+	8 EntityAnimal EntityChicken EntityCow EntityHorse EntityPig EntityRabbit EntitySheep EntityTameable
+	7 WeightedRandom.Item MyWeighedRandomItem EnchantmentData WeightedRandomMinecart WeightedRandomFishable WeightedRandomChestContent SpawnListEntry
+	7 TileEntityLockable TileEntityBrewingStand TileEntityBeacon TileEntityChest TileEntityDispenser TileEntityFurnace TileEntityHopper
+	7 StructureStart Start Start Start Start StructureMineshaftStart StartMonument
+	7 RuntimeException MissingVariantException LoopException StitcherException ThreadQuickExitException ConversionError ReportedException
+	7 NBTBase.NBTPrimitive NBTTagByte NBTTagDouble NBTTagFloat NBTTagInt NBTTagLong NBTTagShort
+	7 MapGenStructure MapGenMineshaft MapGenNetherBridge MapGenScatteredFeature MapGenStronghold MapGenVillage StructureOceanMonument
+	7 EntityMinecart EntityMinecartMobSpawner EntityMinecartContainer EntityMinecartEmpty EntityMinecartFurnace EntityMinecartTNT EntityMinecartCommandBlock
+	7 EntityLiving EntityDragon EntitySlime EntityAmbientCreature EntityWaterMob EntityCreature EntityFlying
+	6 ModelBiped ModelArmorStandArmor ModelEnderman ModelPlayer ModelZombieVillager ModelZombie
+	6 GuiListExtended GuiKeyBindingList GuiOptionsRowList GuiPageButtonList GuiResourcePackList ServerSelectionList
+	6 EntityThrowable EntityEnderPearl EntityExpBottle EntityEgg EntityPotion EntitySnowball
+	6 EntityLivingBase> RendererLivingEntity<T EntityAINearestAttackableTarget<T EntityAITargetNonTamed<T AINearestAttackableTargetNonCreeper<T AISpiderTarget<T
+	6 CommandException CommandNotFoundException EntityNotFoundException NumberInvalidException PlayerNotFoundException SyntaxErrorException
+	6 BlockDirectional BlockBed BlockCocoa BlockFenceGate BlockPumpkin BlockRedstoneDiode
+	6 BlockBreakable BlockGlass BlockIce BlockPortal BlockSlime BlockStainedGlass
+	6 AbstractTexture DynamicTexture LayeredColorMaskTexture LayeredTexture SimpleTexture TextureMap
+	5 WorldSavedData ScoreboardSaveData VillageCollection MapGenStructureData MapData
+	5 Potion PotionAbsorption PotionAttackDamage PotionHealth PotionHealthBoost
+	5 ModelQuadruped ModelCow ModelPig ModelSheep1 ModelSheep2
+	5 Material MaterialLiquid MaterialTransparent MaterialLogic MaterialPortal
+	5 MapGenBase MapGenStructure MapGenCaves MapGenCavesHell MapGenRavine
+	5 ItemFood ItemAppleGold ItemFishFood ItemSeedFood ItemSoup
+	5 GuiPageButtonList.GuiListEntry EditBoxEntry GuiButtonEntry GuiLabelEntry GuiSlideEntry
+	5 Exception AnvilConverterException CommandException NBTException MinecraftException
+	5 Entity> Render<T RenderSnowball<T EntityAIAvoidEntity<T AIAvoidEntity<T
+	5 EntityMoveHelper GhastMoveHelper GuardianMoveHelper SlimeMoveHelper RabbitMoveHelper
+	5 EntityAITarget EntityAIDefendVillage EntityAIHurtByTarget EntityAIOwnerHurtByTarget EntityAIOwnerHurtTarget
+	5 ChatComponentStyle ChatComponentTranslation ChatComponentScore ChatComponentSelector ChatComponentText
+	4 WorldProvider WorldProviderSurface WorldProviderEnd WorldProviderHell
+	4 UserList<GameProfile, UserListBans UserListOps UserListWhitelist
+	4 StatBase Achievement StatBasic StatCrafting
+	4 S14PacketEntity S15PacketEntityRelMove S16PacketEntityLook S17PacketEntityLookMove
+	4 RConThreadBase RConThreadClient RConThreadMain RConThreadQuery
+	4 NoiseGenerator NoiseGeneratorImproved NoiseGeneratorOctaves NoiseGeneratorPerlin
+	4 MovingSound GuardianSound MovingSoundMinecart MovingSoundMinecartRiding
+	4 Metadata MetadataAchievement MetadataCombat MetadataPlayerDeath
+	4 MessageToByteEncoder<ByteBuf> NettyCompressionEncoder NettyEncryptingEncoder MessageSerializer2
+	4 JsonToNBT.Any Compound List Primitive
+	4 ItemTool ItemAxe ItemPickaxe ItemSpade
+	4 InventoryBasic ContainerLocalMenu AnimalChest InventoryEnderChest
+	4 GuiBeacon.Button CancelButton ConfirmButton PowerButton
+	4 EntityLivingBase EntityArmorStand EntityPlayer EntityLiving
+	4 EntityHanging EntityItemFrame EntityPainting EntityLeashKnot
+	4 EntityFireball EntityLargeFireball EntitySmallFireball EntityWitherSkull
+	4 EntityCreature EntityGolem EntityMob EntityAgeable
+	4 EntityAIMoveToBlock EntityAIHarvestFarmland EntityAIOcelotSit AIRaidFarm
+	4 ComponentScatteredFeaturePieces.Feature DesertPyramid JunglePyramid SwampHut
+	4 C03PacketPlayer C04PacketPlayerPosition C05PacketPlayerLook C06PacketPlayerPosLook
+	4 ByteToMessageDecoder NettyCompressionDecoder MessageDeserializer MessageDeserializer2
+	4 BlockSlab BlockStoneSlab BlockStoneSlabNew BlockWoodSlab
+	4 BlockRailBase BlockRail BlockRailDetector BlockRailPowered
+	4 BlockPos MutableBlockPos FoliageCoordinates PortalPosition
+	4 BlockFalling BlockAnvil BlockGravel BlockSand
+	3 World WorldClient WorldServer
+	3 WorldServer DemoWorldServer WorldServerMulti
+	3 WorldGenHugeTrees WorldGenMegaJungle WorldGenMegaPineTree
+	3 UserListEntry<GameProfile> UserListWhitelistEntry UserListOpsEntry
+	3 Thread ThreadLanServerPing ThreadLanServerFind
+	3 TextureAtlasSprite TextureClock TextureCompass
+	3 StructureComponent.BlockSelector Stones Stones
+	3 StateMapperBase DefaultStateMapper StateMap
+	3 ServerConfigurationManager DedicatedPlayerList IntegratedPlayerList
+	3 ScoreDummyCriteria ScoreHealthCriteria ObjectiveStat
+	3 ResourcePackListEntry ResourcePackListEntryDefault ResourcePackListEntryFound
+	3 RealmsScreen DisconnectedRealmsScreen RealmsBridge
+	3 PositionedSound MovingSound PositionedSoundRecord
+	3 PathNavigate PathNavigateGround PathNavigateSwimmer
+	3 NodeProcessor SwimNodeProcessor WalkNodeProcessor
+	3 MinecraftServer DedicatedServer IntegratedServer
+	3 JComponent MinecraftServerGui StatsComponent
+	3 ItemMultiTexture ItemAnvilBlock ItemDoublePlant
+	3 ItemMapBase ItemEmptyMap ItemMap
+	3 InventoryEffectRenderer GuiContainerCreative GuiInventory
+	3 IMetadataSection> BaseMetadataSectionSerializer<T Registration<T
+	3 GuiStats.Stats StatsBlock StatsItem
+	3 GuiResourcePackList GuiResourcePackAvailable GuiResourcePackSelected
+	3 EntityTameable EntityOcelot EntityWolf
+	3 EntityPlayer AbstractClientPlayer EntityPlayerMP
+	3 EntityMinecartContainer EntityMinecartChest EntityMinecartHopper
+	3 EntityLiving> RenderBiped<T RenderLiving<T
+	3 EntityGolem EntityIronGolem EntitySnowman
+	3 EntityAIWatchClosest EntityAILookAtTradePlayer EntityAIWatchClosest2
+	3 EntityAIDoorInteract EntityAIBreakDoor EntityAIOpenDoor
+	3 EntityAIAttackOnCollide AISpiderAttack AIEvilAttack
+	3 EntityAgeable EntityAnimal EntityVillager
+	3 ChunkRenderContainer RenderList VboRenderList
+	3 BlockWoodSlab BlockDoubleWoodSlab BlockHalfWoodSlab
+	3 BlockStoneSlabNew BlockDoubleStoneSlabNew BlockHalfStoneSlabNew
+	3 BlockStoneSlab BlockDoubleStoneSlab BlockHalfStoneSlab
+	3 BlockSign BlockStandingSign BlockWallSign
+	3 BlockRotatedPillar BlockHay BlockLog
+	3 BlockRedstoneDiode BlockRedstoneComparator BlockRedstoneRepeater
+	3 BlockLog BlockNewLog BlockOldLog
+	3 BlockLiquid BlockDynamicLiquid BlockStaticLiquid
+	3 BlockLeaves BlockNewLeaf BlockOldLeaf
+	3 BlockFlower BlockRedFlower BlockYellowFlower
+	3 BlockCrops BlockCarrot BlockPotato
+	3 BlockButton BlockButtonStone BlockButtonWood
+	3 BlockBasePressurePlate BlockPressurePlateWeighted BlockPressurePlate
+	3 BlockBanner BlockBannerHanging BlockBannerStanding
+	3 AbstractResourcePack FileResourcePack FolderResourcePack
+	3 AbstractClientPlayer EntityOtherPlayerMP EntityPlayerSP
+	2 WorldVertexBufferUploader VertexBufferUploader
+	2 WorldInfo DerivedWorldInfo
+	2 WorldGenTrees WorldGenShrub
+	2 WorldChunkManager WorldChunkManagerHell
+	2 Vec3i BlockPos
+	2 UserList<String, BanList
+	2 UserListEntry<T> BanEntry<T>
+	2 UnmodifiableIterator<T[]> ProductIterator<T>
+	2 Tuple<Integer, PriceInfo
+	2 TileEntity> TileEntitySpecialRenderer<T
+	2 TileEntitySpecialRenderer<TileEntitySkull> TileEntitySkullRenderer
+	2 TileEntitySpecialRenderer<TileEntitySign> TileEntitySignRenderer
+	2 TileEntitySpecialRenderer<TileEntityPiston> TileEntityPistonRenderer
+	2 TileEntitySpecialRenderer<TileEntityMobSpawner> TileEntityMobSpawnerRenderer
+	2 TileEntitySpecialRenderer<TileEntityEndPortal> TileEntityEndPortalRenderer
+	2 TileEntitySpecialRenderer<TileEntityEnderChest> TileEntityEnderChestRenderer
+	2 TileEntitySpecialRenderer<TileEntityEnchantmentTable> TileEntityEnchantmentTableRenderer
+	2 TileEntitySpecialRenderer<TileEntityChest> TileEntityChestRenderer
+	2 TileEntitySpecialRenderer<TileEntityBeacon> TileEntityBeaconRenderer
+	2 TileEntitySpecialRenderer<TileEntityBanner> TileEntityBannerRenderer
+	2 TileEntityDispenser TileEntityDropper
+	2 Team ScorePlayerTeam
+	2 SyntaxErrorException WrongUsageException
+	2 StructureVillagePieces.Well Start
+	2 StructureVillagePieces.Road Path
+	2 StructureStrongholdPieces.Stairs Stairs2
+	2 StructureStrongholdPieces.LeftTurn RightTurn
+	2 StructureNetherBridgePieces.Crossing3 Start
+	2 StatFileWriter StatisticsFile
+	2 SoundSystem SoundSystemStarterThread
+	2 SimpleTexture ThreadDownloadImageData
+	2 SimpleChannelInboundHandler<Packet> NetworkManager
+	2 ShapedRecipes RecipesMapExtending
+	2 ShaderUniform ShaderDefault
+	2 ServerCommandManager IntegratedServerCommandManager
+	2 Scoreboard ServerScoreboard
+	2 SaveHandler AnvilSaveHandler
+	2 SaveFormatOld AnvilSaveConverter
+	2 ResourceLocation ModelResourceLocation
+	2 RenderSpider<EntityCaveSpider> RenderCaveSpider
+	2 RenderSnowball<EntityPotion> RenderPotion
+	2 RenderMinecart<EntityMinecartTNT> RenderTntMinecart
+	2 RenderMinecart<EntityMinecartMobSpawner> RenderMinecartMobSpawner
+	2 RenderLiving<EntityWolf> RenderWolf
+	2 RenderLiving<EntityWither> RenderWither
+	2 RenderLiving<EntityWitch> RenderWitch
+	2 RenderLiving<EntityVillager> RenderVillager
+	2 RenderLiving<EntitySquid> RenderSquid
+	2 RenderLiving<EntitySnowman> RenderSnowMan
+	2 RenderLiving<EntitySlime> RenderSlime
+	2 RenderLiving<EntitySilverfish> RenderSilverfish
+	2 RenderLiving<EntitySheep> RenderSheep
+	2 RenderLiving<EntityRabbit> RenderRabbit
+	2 RenderLiving<EntityPig> RenderPig
+	2 RenderLiving<EntityOcelot> RenderOcelot
+	2 RenderLiving<EntityMooshroom> RenderMooshroom
+	2 RenderLiving<EntityMagmaCube> RenderMagmaCube
+	2 RenderLiving<EntityIronGolem> RenderIronGolem
+	2 RenderLiving<EntityHorse> RenderHorse
+	2 RenderLiving<EntityGuardian> RenderGuardian
+	2 RenderLiving<EntityGiantZombie> RenderGiantZombie
+	2 RenderLiving<EntityGhast> RenderGhast
+	2 RenderLiving<EntityEndermite> RenderEndermite
+	2 RenderLiving<EntityEnderman> RenderEnderman
+	2 RenderLiving<EntityDragon> RenderDragon
+	2 RenderLiving<EntityCreeper> RenderCreeper
+	2 RenderLiving<EntityCow> RenderCow
+	2 RenderLiving<EntityChicken> RenderChicken
+	2 RenderLiving<EntityBlaze> RenderBlaze
+	2 RenderLiving<EntityBat> RenderBat
+	2 RendererLivingEntity<EntityArmorStand> ArmorStandRenderer
+	2 RendererLivingEntity<AbstractClientPlayer> RenderPlayer
+	2 Render<EntityXPOrb> RenderXPOrb
+	2 Render<EntityWitherSkull> RenderWitherSkull
+	2 Render<EntityTNTPrimed> RenderTNTPrimed
+	2 Render<Entity> RenderEntity
+	2 Render<EntityPainting> RenderPainting
+	2 Render<EntityLightningBolt> RenderLightningBolt
+	2 Render<EntityLeashKnot> RenderLeashKnot
+	2 Render<EntityItem> RenderEntityItem
+	2 Render<EntityItemFrame> RenderItemFrame
+	2 Render<EntityFishHook> RenderFish
+	2 Render<EntityFireball> RenderFireball
+	2 Render<EntityFallingBlock> RenderFallingBlock
+	2 Render<EntityEnderCrystal> RenderEnderCrystal
+	2 Render<EntityBoat> RenderBoat
+	2 Render<EntityArrow> RenderArrow
+	2 RenderChunk ListedRenderChunk
+	2 RenderBiped<EntityZombie> RenderZombie
+	2 RenderBiped<EntitySkeleton> RenderSkeleton
+	2 RenderBiped<EntityPigZombie> RenderPigZombie
+	2 RegistrySimple<ResourceLocation, SoundRegistry
+	2 RealmsButton RealmsSliderButton
+	2 PropertyHelper<Integer> PropertyInteger
+	2 PropertyHelper<Boolean> PropertyBool
+	2 PropertyEnum<EnumFacing> PropertyDirection
+	2 PrintStream LoggingPrintStream
+	2 PathNavigateGround PathNavigateClimber
+	2 org.lwjgl.util.vector.Matrix4f Matrix4f
+	2 MovementInput MovementInputFromOptions
+	2 ModelZombie ModelSkeleton
+	2 ModelVillager ModelWitch
+	2 ModelSkeletonHead ModelHumanoidHead
+	2 ModelChest ModelLargeChest
+	2 ModelBase> LayerArmorBase<T
+	2 ModelArmorStandArmor ModelArmorStand
+	2 MessageToMessageDecoder<ByteBuf> NettyEncryptingDecoder
+	2 MessageToByteEncoder<Packet> MessageSerializer
+	2 MapStorage SaveDataMemoryStorage
+	2 LayerBipedArmor LayerVillagerArmor
+	2 LayerArmorBase<ModelBiped> LayerBipedArmor
+	2 JList PlayerListComponent
+	2 ItemInWorldManager DemoWorldManager
+	2 ItemColored ItemLilyPad
+	2 IOException JsonException
+	2 InputStream InputStreamLeakedResourceLogger
+	2 IllegalArgumentException ChatComponentTranslationFormatException
+	2 GuiYesNo GuiConfirmOpenLink
+	2 GuiChat GuiSleepMP
+	2 GenLayerZoom GenLayerFuzzyZoom
+	2 ForwardingSet<String> JsonSerializableSet
+	2 FileNotFoundException ResourcePackFileNotFoundException
+	2 Error MinecraftError
+	2 Enum<T> PropertyEnum<T
+	2 EntityZombie EntityPigZombie
+	2 EntityWeatherEffect EntityLightningBolt
+	2 EntityWaterMob EntitySquid
+	2 EntitySpider> RenderSpider<T
+	2 EntitySpider EntityCaveSpider
+	2 EntitySmokeFX EntityCritFX
+	2 EntitySlime EntityMagmaCube
+	2 EntityRainFX EntitySplashFX
+	2 EntityMinecart> RenderMinecart<T
+	2 EntityJumpHelper RabbitJumpHelper
+	2 EntityFlying EntityGhast
+	2 EntityDiggingFX EntityBlockDustFX
+	2 EntityDamageSource EntityDamageSourceIndirect
+	2 EntityCow EntityMooshroom
+	2 EntityAmbientCreature EntityBat
+	2 EntityAIWatchClosest2 EntityAIVillagerInteract
+	2 EntityAIWander AIHideInStone
+	2 EntityAIPanic AIPanic
+	2 EntityAINearestAttackableTarget<EntityPlayer> AITargetAggressor
+	2 EntityAINearestAttackableTarget AIFindPlayer
+	2 EntityAIHurtByTarget AIHurtByAggressor
+	2 DamageSource EntityDamageSource
+	2 Comparable<T>> PropertyHelper<T
+	2 CommandHandler ServerCommandManager
+	2 CommandGameMode CommandDefaultGameMode
+	2 com.google.common.cache.CacheLoader<BlockPos, CacheLoader
+	2 ClippingHelper ClippingHelperImpl
+	2 Chunk EmptyChunk
+	2 ChunkCache RegionRenderCache
+	2 ChannelInboundHandlerAdapter PingResponseHandler
+	2 ByteBuf PacketBuffer
+	2 ByteArrayOutputStream ChunkBuffer
+	2 BlockTorch BlockRedstoneTorch
+	2 BlockStateBase StateImplementation
+	2 BlockPane BlockStainedGlassPane
+	2 BlockLeavesBase BlockLeaves
+	2 BlockDispenser BlockDropper
+	2 BiomeGenMutated Mutated
+	2 BiomeDecorator BiomeEndDecorator
+	2 BehaviorDefaultDispenseItem BehaviorProjectileDispense
+	2 BaseMetadataSectionSerializer<TextureMetadataSection> TextureMetadataSectionSerializer
+	2 BaseMetadataSectionSerializer<PackMetadataSection> PackMetadataSectionSerializer
+	2 BaseMetadataSectionSerializer<LanguageMetadataSection> LanguageMetadataSectionSerializer
+	2 BaseMetadataSectionSerializer<FontMetadataSection> FontMetadataSectionSerializer
+	2 BaseMetadataSectionSerializer<AnimationMetadataSection> AnimationMetadataSectionSerializer
+	2 BaseAttribute RangedAttribute
+	2 BaseAttributeMap ServersideAttributeMap
+	2 BanEntry<String> IPBanEntry
+	2 BanEntry<GameProfile> UserListBansEntry
+	2 BakedQuad BreakingFour
+	2 ArrayList<MerchantRecipe> MerchantRecipeList
+	2 ArrayList<BlockEventData> ServerBlockEventList
+	2 AbstractSet<T> ClassInheritanceMultiMap<T>
+
+
 2015-12-26  Deniz Yuret  <dyuret@ku.edu.tr>
 
 	* Book: Sams Teach Yourself Mod Development for Minecraft in 24
